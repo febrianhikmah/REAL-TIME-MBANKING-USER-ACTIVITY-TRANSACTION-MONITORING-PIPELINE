@@ -1,0 +1,32 @@
+from datetime import datetime, timedelta
+from pathlib import Path
+
+from airflow import DAG
+from airflow.providers.common.sql.operators.sql import SQLExecuteQueryOperator
+
+
+DEFAULT_ARGS = {
+    "owner": "data-engineering",
+    "depends_on_past": False,
+    "retries": 1,
+    "retry_delay": timedelta(minutes=5),
+}
+
+
+def load_sql(filename):
+    return (Path("/opt/airflow/sql") / filename).read_text()
+
+
+with DAG(
+    dag_id="suspicious_activity_summary",
+    default_args=DEFAULT_ARGS,
+    start_date=datetime(2026, 1, 1),
+    schedule="@daily",
+    catchup=False,
+    tags=["banking", "analytics", "security"],
+) as dag:
+    refresh_suspicious_activity_summary = SQLExecuteQueryOperator(
+        task_id="refresh_suspicious_activity_summary",
+        conn_id="postgres_banking_activity",
+        sql=load_sql("suspicious_activity_summary.sql"),
+    )
