@@ -49,7 +49,7 @@ Synthetic JSON banking events
 3. Raw Ingestion Layer
 - Setiap Kafka topic dibaca oleh consumer yang berbeda
 - Consumer menyimpan event ke PostgreSQL raw table sesuai domain
-- Data raw disimpan dalam bentuk terstruktur, dengan metadata JSONB tetap dipertahankan
+- Data raw disimpan dalam bentuk terstruktur, dengan metadata JSON tetap dipertahankan
 
 📊 Raw Tables:
 
