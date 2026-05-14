@@ -1,6 +1,8 @@
 # 🚀 REAL-TIME MBANKING USER ACTIVITY & TRANSACTION MONITORING PIPELINE
 ---
 
+![Pipeline Monitoring](<./Pipeline Monitoring, Real-time MBanking User Activity and Transaction.png>)
+
 ## ✨ Gambaran Umum
 
 Proyek ini merupakan implementasi pipeline data engineering end-to-end untuk mensimulasikan, mengalirkan, menyimpan, dan menganalisis aktivitas user pada aplikasi mobile banking secara real-time.
